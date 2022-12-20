@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <div class="card mb-4">
+                                <a href="#!">
+                                    {%if image.picture %}
+              <img class="card-img-top" src="{{image.picture.url}}" alt="...">
+              {% endif %}
+                                </a>
+                                <div class="card-body">
+                                    <div class="small text-muted">{{image.upload_date}}</div>
+                                    <h2 class="card-title h4">{{image.title}}</h2>
+                                    <p class="card-text">{{image.description}}</p>
+                                    <ul>
+                                        {% for field in fieldslist %}
+                                        <li>
+                                            <b>{{field}}: </b> "{{ image.field }}"
+                                        </li>
+                                        {% endfor %}
+                                    </ul>
+                                    <a href= "{% url 'editpage' image.id %}" target=''><button type="button" class="btn btn-sm btn-outline-secondary">Edit</button></a>
+                                </div>
+
+    </div>
+
+</body>
+</html>
